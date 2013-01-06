@@ -1,0 +1,21 @@
+html, #container { 
+	background-image: url(backgrounds/pagebg.gif);
+	background-repeat: repeat;
+}
+h1, p, label {
+	font-family: "Myriad Pro",Helvetica,Arial,sans-serif;
+	line-height: normal;
+/*	font-size: 30px; */
+	font-weight: 400;
+	color: #666;
+/*	font-size: 1.4em;*/
+	letter-spacing: 0.05em;
+	text-shadow: 0 1px #EEE;
+}
+#logo {
+	margin: 10% 0px 5%;
+}
+#flash {
+	text-align: center;
+	display: none;
+}
