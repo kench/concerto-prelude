@@ -3,7 +3,7 @@
 <head>
 <title>Concerto Configuration</title>
 <script src="jquery.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="application.js" type="text/javascript"></script>
 <script src="settings.js" type="text/javascript"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="settings.css" type="text.css" />
@@ -47,13 +47,27 @@
 		</div>
 		<div class="control-group">
 			<div class="controls">
-				<input class="btn" id="save" type="submit" name="save" value="Save and Reload" />
+				<input class="btn btn-primary" id="save" type="submit" name="save" value="Save and Reload" />
 			</div>
 		</div>
 	</form>
 </div>
 </div>
-
+<script type="text/javascript">
+$(function() {
+	var input_id = ;
+	var input_url = ;
+	var input_version = ;
+	$("#settings").submit(function()
+	{
+		var settings = new concerto.player.Settings($('#mac').val(), $('#endpoint').val(), parseInt($('#version').val());
+		settings.save();
+	});
+	$("#version").change(concerto.settings.set_mac_label);
+	concerto.settings.populate_fields($('#mac').get(), $('#endpoint').get(), $('#version').get());
+	concerto.player.Settings.setIDLabel($("label[for='mac']").get(), $("input#mac").get());
+});
+</script>
 </div>
 </div>
 </body>

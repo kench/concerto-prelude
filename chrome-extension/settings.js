@@ -1,42 +1,81 @@
-$(function() {
-	// Prepopulate fields if available
-	if (!(localStorage["mac"] == undefined))
-	{
-		$('#mac').val(localStorage["mac"]);
-	}
-	if (!(localStorage["serverEndpoint"] == undefined))
-	{
-		$('#endpoint').val(localStorage["serverEndpoint"]);
-	}
-	if (!(localStorage["serverVersion"] == undefined))
-	{
-		$('#version').val(localStorage["serverVersion"]);
-	}
-	$("#settings").submit(function()
-	{
-		Concerto.settings.set($('#mac').val(), $('#endpoint').val(), parseInt($('#version').val()));
-	});
-	$("#version").change(function(e){
-		if ($(e.target).val() == 1)
-		{
-			$("label[for='mac']").text("MAC Address");
-			$("input#mac").attr("placeholder", "0F:DE:AD:BE:EF");
-		}
-		else
-		{
-			$("label[for='mac']").text("Screen ID");
-			$("input#mac").attr("placeholder", "1");
-		}
-	});
-});
+goog.provide('concerto.player.Settings');
 
-var Concerto = {};
-Concerto.settings = {};
+goog.require('goog.dom');
 
-Concerto.settings.set = function(mac_address, server_url, version)
-{
-	localStorage["mac"] = mac_address;
-	localStorage["serverEndpoint"] = server_url;
-	localStorage["serverVersion"] = version;
-	localStorage["haveConfiguration"] = true;
+/**
+ * Player Settings.
+ *
+ * @param {string} id Screen identifier.  MAC address for version 1, ID number for version 2.
+ * @param {string} url Concerto server URL.
+ * @param {number} version Concerto server version.
+ * @constructor
+ */
+concerto.player.Settings = function(id, url, version) {
+	/**
+	 * Screen identifier
+	 * @type {string}
+	 */
+	this.screen_id = id;
+	
+	/**
+	 * Server URL
+	 * @type {string}
+	 */
+	this.server_url = url;
+	
+	/**
+	 * Server version
+	 * @type {number}
+	 */
+	this.server_version = version;
+};
+goog.exportSymbol('concerto.player.Settings', concerto.player.Settings);
+
+/**
+ * Save Player settings to localStorage.
+ */
+concerto.player.Settings.save = function() {
+	localStorage["screen_id"] = this.screen_id;
+	localStorage["server_url"] = this.server_url;
+	localStorage["server_version"] = this.server_version;
 }
+
+/**
+ * Load Player settings from localStorage.
+ */
+concerto.player.Settings.load = function() {
+	this.screen_id = localStorage["screen_id"];
+	this.server_url = localStorage["server_url"];
+	this.server_version = localStorage["server_version"];
+}
+
+/**
+ * Set up proper input names for the screen identifier.
+ * @param {ELement=} label Label element describing the form input
+ * @param {ELement=} input Input element for screen identifier
+ */
+concerto.player.Settings.setIDLabel = function(label, input) {
+	if (this.server_version == 1)
+	{
+		goog.dom.setTextContent(label, "MAC Address");
+		goog.dom.setProperties(input, {"placeholder": "0F:DE:AD:BE:EF"});
+	}
+	else if (this.server_version == 2)
+	{
+		goog.dom.setTextContent(label, "Screen ID");
+		goog.dom.setProperties(input, {"placeholder": "1"});
+	}
+}
+
+/**
+ * Populate settings form.
+ * @param {string} id Screen identifier.  MAC address for version 1, ID number for version 2.
+ * @param {string} url Concerto server URL.
+ * @param {number} version Concerto server version.
+ */
+concerto.settings.populate_form = function(id, url, version)
+{
+	goog.dom.setProperties(id, {"value": this.screen_id});
+	goog.dom.setProperties(url, {"value": this.server_url});
+	goog.dom.setProperties(version, {"value": this.server_version});
+};
