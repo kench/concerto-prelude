@@ -53,21 +53,6 @@
 	</form>
 </div>
 </div>
-<script type="text/javascript">
-$(function() {
-	var input_id = ;
-	var input_url = ;
-	var input_version = ;
-	$("#settings").submit(function()
-	{
-		var settings = new concerto.player.Settings($('#mac').val(), $('#endpoint').val(), parseInt($('#version').val());
-		settings.save();
-	});
-	$("#version").change(concerto.settings.set_mac_label);
-	concerto.settings.populate_fields($('#mac').get(), $('#endpoint').get(), $('#version').get());
-	concerto.player.Settings.setIDLabel($("label[for='mac']").get(), $("input#mac").get());
-});
-</script>
 </div>
 </div>
 </body>
