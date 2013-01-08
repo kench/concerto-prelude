@@ -32,7 +32,7 @@ goog.exportSymbol('concerto.player.Settings', concerto.player.Settings);
 /**
  * Save Player settings to localStorage.
  */
-concerto.player.Settings.save = function() {
+concerto.player.Settings.prototype.save = function() {
 	localStorage["screen_id"] = this.screen_id;
 	localStorage["server_url"] = this.server_url;
 	localStorage["server_version"] = this.server_version;
@@ -41,7 +41,7 @@ concerto.player.Settings.save = function() {
 /**
  * Load Player settings from localStorage.
  */
-concerto.player.Settings.load = function() {
+concerto.player.Settings.prototype.load = function() {
 	this.screen_id = localStorage["screen_id"];
 	this.server_url = localStorage["server_url"];
 	this.server_version = localStorage["server_version"];
