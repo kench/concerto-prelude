@@ -1,7 +1,8 @@
 html, #container { 
-	background-image: url(backgrounds/pagebg.gif);
+	background-image: url(../backgrounds/background_settings.gif);
 	background-repeat: repeat;
 }
+
 h1, p, label {
 	font-family: "Myriad Pro",Helvetica,Arial,sans-serif;
 	line-height: normal;
@@ -12,9 +13,11 @@ h1, p, label {
 	letter-spacing: 0.05em;
 	text-shadow: 0 1px #EEE;
 }
+
 #logo {
 	margin: 10% 0px 5%;
 }
+
 #flash {
 	text-align: center;
 	display: none;

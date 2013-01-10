@@ -46,3 +46,24 @@ concerto.player.Settings.prototype.load = function() {
 	this.server_url = localStorage["server_url"];
 	this.server_version = localStorage["server_version"];
 };
+
+/**
+ * Get frontend url from settings
+ */
+concerto.player.Settings.prototype.url = function() {
+	if (this.server_version == 1)
+	{
+		return this.server_url + "/screen/?mac=" + this.screen_id;
+	}
+	else if (this.server_version == 2)
+	{
+		return this.server_url + "/frontend/" + this.screen_id;
+	}
+	else
+	{
+		return null;
+	}
+	this.screen_id = localStorage["screen_id"];
+	this.server_url = localStorage["server_url"];
+	this.server_version = localStorage["server_version"];
+};

@@ -4,8 +4,8 @@
 	"manifest_version": 2,
 	"description": "Concerto Player application for Google Chrome.",
 	"icons": {
-		"16": "icon_16.png",
-		"128": "icon_128.png"
+		"16": "img/icon_16.png",
+		"128": "img/icon_128.png"
 	},
 	
 	"app": {
@@ -17,7 +17,8 @@
 	"permissions": [
 		"<all_urls>",
 		"geolocation",
-		"tts"
+		"tts",
+		"background"
 	],
 	"offline_enabled": true
 }

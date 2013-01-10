@@ -1,0 +1,61 @@
+body {
+	margin: 0;
+	overflow: hidden;
+}
+
+@media (max-width: 1280px) {
+	body {
+		background-color: #006695;
+	}
+}
+
+@media (min-width: 1280px) {
+	body {
+		background: url(../backgrounds/concertoblue_1280x1024.jpg) no-repeat;
+	}
+	#container {
+		width: 1280px;
+		height: 1024px;
+	}
+}
+
+@media (min-width: 1400px) {
+	body {
+		background: url(../backgrounds/concertoblue_1400x1050.jpg) no-repeat;
+	}
+	#container {
+		width: 1400px;
+		height: 1050px;
+	}
+}
+
+@media (min-width: 1680px) {
+	body {
+		background: url(../backgrounds/concertoblue_1680x1050.jpg) no-repeat;
+	}
+	#container {
+		width: 1680px;
+		height: 1050px;
+	}
+}
+
+@media (min-width: 1920px) {
+	body {
+		background: url(../backgrounds/concertoblue_1920x1200.jpg) no-repeat;
+	}
+	#container {
+		width: 1920px;
+		height: 1200px;
+	}
+}
+
+#status-message {
+	width 500px;
+	margin: 62% auto 0px;
+	color: white;
+	text-align: center;
+	font-family: "Myriad Pro",Helvetica,Arial,sans-serif;
+	font-size: 35px;
+	letter-spacing: 0.05em;
+	text-shadow: 0 1px #EEE;
+}

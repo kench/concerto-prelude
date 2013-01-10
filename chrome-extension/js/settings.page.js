@@ -1,5 +1,9 @@
 goog.provide('concerto.player.pages.Settings');
 
+goog.require('goog.dom');
+goog.require('goog.dom.forms');
+goog.require('goog.dom.query');
+goog.require('goog.events');
 goog.require('concerto.player.Settings');
 
 /**
