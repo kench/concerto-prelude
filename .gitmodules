@@ -1,0 +1,3 @@
+[submodule "chrome-extension/js/closure"]
+	path = chrome-extension/js/closure
+	url = https://github.com/jarib/google-closure-library.git
