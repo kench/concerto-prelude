@@ -71,11 +71,17 @@ concerto.player.pages.Home.message_loop = function()
 
 concerto.player.pages.Home.redirect = function()
 {
-	var config = new concerto.player.Settings();
-	config.load();
-	window.location = config.url();
+	if (navigator.onLine)
+	{
+		var config = new concerto.player.Settings();
+		config.load();
+		window.location = config.url();
+	}
+	else
+	{
+		window.location.reload(true)
+	}
 };
-
 
 concerto.player.pages.Home.load = function()
 {
@@ -91,7 +97,15 @@ concerto.player.pages.Home.load = function()
 	
 	if (config.url() == null)
 	{
-		setInterval(concerto.player.pages.Home.message_loop, 5000);
+		window.location = settings.html;
+	}
+	else if (!navigator.onLine)
+	{
+		goog.dom.setTextContent(div, "No internet connectivity.");
+		
+		// This isn't working.
+		//goog.events.listen(document, goog.events.EventType.ONLINE, concerto.player.pages.Home.redirect);
+		setInterval(function() {window.location.reload(true)}, 10000);
 	}
 	else
 	{
