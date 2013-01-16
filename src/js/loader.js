@@ -1,6 +1,9 @@
 goog.provide('concerto.player.pages.Home');
 
 goog.require('concerto.player.Settings');
+goog.require('goog.events');
+goog.require('goog.dom');
+goog.require('goog.dom.query');
 
 /**
  * Player Settings Page.
@@ -10,6 +13,7 @@ goog.require('concerto.player.Settings');
 concerto.player.pages.Home = function() {
 	
 };
+goog.exportSymbol('concerto.player.Settings', concerto.player.Settings);
 
 /**
  * Keypress handler
@@ -97,7 +101,7 @@ concerto.player.pages.Home.load = function()
 	
 	if (config.url() == null)
 	{
-		window.location = settings.html;
+		window.location = "settings.html";
 	}
 	else if (!navigator.onLine)
 	{
@@ -112,6 +116,7 @@ concerto.player.pages.Home.load = function()
 		setInterval(concerto.player.pages.Home.redirect, 5000);
 	}
 };
+goog.exportSymbol('concerto.player.Settings.load', concerto.player.Settings.load);
 
 (function() {
 	goog.events.listen(window, goog.events.EventType.LOAD, concerto.player.pages.Home.load);
