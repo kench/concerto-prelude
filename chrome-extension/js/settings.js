@@ -28,6 +28,9 @@ concerto.player.Settings = function(id, url, version) {
 	this.server_version = version;
 };
 goog.exportSymbol('concerto.player.Settings', concerto.player.Settings);
+goog.exportProperty(concerto.player.Settings, 'screen_id', concerto.player.Settings.screen_id);
+goog.exportProperty(concerto.player.Settings, 'server_url', concerto.player.Settings.server_url);
+goog.exportProperty(concerto.player.Settings, 'server_version', concerto.player.Settings.server_version);
 
 /**
  * Save Player settings to localStorage.
@@ -37,6 +40,7 @@ concerto.player.Settings.prototype.save = function() {
 	localStorage["server_url"] = this.server_url;
 	localStorage["server_version"] = this.server_version;
 };
+goog.exportSymbol('concerto.player.Settings.save', concerto.player.Settings.prototype.save);
 
 /**
  * Load Player settings from localStorage.
@@ -46,6 +50,7 @@ concerto.player.Settings.prototype.load = function() {
 	this.server_url = localStorage["server_url"];
 	this.server_version = localStorage["server_version"];
 };
+goog.exportSymbol('concerto.player.Settings.load', concerto.player.Settings.prototype.load);
 
 /**
  * Get frontend url from settings
@@ -67,3 +72,4 @@ concerto.player.Settings.prototype.url = function() {
 	this.server_url = localStorage["server_url"];
 	this.server_version = localStorage["server_version"];
 };
+goog.exportSymbol('concerto.player.Settings.url', concerto.player.Settings.prototype.url);

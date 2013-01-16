@@ -69,6 +69,11 @@ concerto.player.pages.Settings.prototype.setIDLabel = function(label, input) {
  */
 concerto.player.pages.Settings.prototype.populate_form = function(id, url, version)
 {
+	if (this.settings.server_version != undefined)
+	{
+		var flash = goog.dom.getElement("flash");
+		goog.dom.classes.add(flash, "hidden");
+	}
 	goog.dom.forms.setValue(this.el_input_id, id);
 	goog.dom.forms.setValue(this.el_input_url, url);
 	goog.dom.forms.setValue(this.el_input_version, version);

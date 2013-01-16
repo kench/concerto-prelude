@@ -15,10 +15,24 @@ h1, p, label {
 }
 
 #logo {
-	margin: 10% 0px 5%;
+	width: 80%;
+	text-align: center;
+	margin: 20px 10% 0px;
 }
 
 #flash {
 	text-align: center;
+}
+
+#flash * {
+	margin: 0px;
+}
+
+.hidden {
 	display: none;
+}
+
+#settings {
+	width: 285px;
+	margin: 10px auto;
 }
