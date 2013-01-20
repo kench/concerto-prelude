@@ -57,7 +57,7 @@ concerto.player.pages.Home.redirect = function() {
   if (navigator.onLine) {
     var config = new concerto.player.Settings();
     config.load();
-		// Check for HTTP 200 at the destination.
+		// Check for HTTP 200 at the destination.  This only works within the Chrome application.
 		goog.net.XhrIo.send(config.url(), function(e) {
 			var xhr = e.target;
 			var resp = xhr.getStatus();
@@ -70,6 +70,7 @@ concerto.player.pages.Home.redirect = function() {
 				setInterval(function() {window.location.reload(true)}, 10000);
 			}
 		});
+		window.location = config.url(); // We have no way of testing the correctness of the server config.  Blindly redirect.
   } else {
     window.location.reload(true)
   }

@@ -63,8 +63,5 @@ concerto.player.Settings.prototype.url = function() {
   } else {
     return null;
   }
-  this.screen_id = localStorage['screen_id'];
-  this.server_url = localStorage['server_url'];
-  this.server_version = localStorage['server_version'];
 };
 goog.exportSymbol('concerto.player.Settings.url', concerto.player.Settings.prototype.url);
