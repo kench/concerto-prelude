@@ -1,13 +1,10 @@
 body {
 	margin: 0;
 	overflow: hidden;
+	/* Sensible default background for smaller screens and browsers without CSS3 media query support. */
+	background: url(../backgrounds/concertoblue_1280x1024.jpg) center;
 }
 
-@media (max-width: 1280px) {
-	body {
-		background-color: #006695;
-	}
-}
 
 @media (min-width: 1280px) {
 	body {
