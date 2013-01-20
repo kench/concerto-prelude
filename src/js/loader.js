@@ -4,6 +4,7 @@ goog.require('concerto.player.Settings');
 goog.require('goog.events');
 goog.require('goog.dom');
 goog.require('goog.dom.query');
+goog.require('goog.net.XhrIo');
 
 /**
  * Player Settings Page.
@@ -56,7 +57,19 @@ concerto.player.pages.Home.redirect = function() {
   if (navigator.onLine) {
     var config = new concerto.player.Settings();
     config.load();
-    window.location = config.url();
+		// Check for HTTP 200 at the destination.
+		goog.net.XhrIo.send(config.url(), function(e) {
+			var xhr = e.target;
+			var resp = xhr.getStatus();
+			if (resp < 400) { // Any non-error HTTP response codes.
+				window.location = config.url();
+			} else { // HTTP response codes > 400
+				// Display status message and refresh.
+				var div = goog.dom.getElement('status-message');
+				goog.dom.setTextContent(div, 'Unable to contact Concerto server.  Please check configuration.');
+				setInterval(function() {window.location.reload(true)}, 10000);
+			}
+		});
   } else {
     window.location.reload(true)
   }

@@ -78,4 +78,4 @@ concerto.player.pages.Settings.prototype.populate_form = function(id, url, versi
 (function() {
   var page = new concerto.player.pages.Settings();
   goog.events.listen(window, goog.events.EventType.LOAD, goog.bind(page.load, page));
-})();'
+})();
