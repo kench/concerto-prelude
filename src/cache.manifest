@@ -6,6 +6,7 @@ NETWORK:
 /backgrounds/concertoblue_1400x1050.jpg
 CACHE:
 /backgrounds/background_settings.gif
+/img/concerto.png
 /css/bootstrap-responsive.min.css
 /css/bootstrap.min.css
 /css/settings.css
@@ -13,3 +14,4 @@ CACHE:
 /settings.js
 /index.js
 /index.html
+#REVISION 2013-1-27-00
