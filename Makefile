@@ -6,7 +6,7 @@ zip: compile-js copy-files
 
 copy-files:
 	cp -R src build
-	rm -rf build/closure build/js
+	rm -rf build/closure build/js build/src
 
 compile-js:
 	./compile-js.sh

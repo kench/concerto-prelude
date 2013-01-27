@@ -43,12 +43,24 @@ concerto.player.Settings.prototype.save = function() {
 goog.exportSymbol('concerto.player.Settings.save', concerto.player.Settings.prototype.save);
 
 /**
- * Load Player settings from localStorage.
+ * Load Player settings from window.location.hash if available.  Otherwise, load from localStorage.
  */
 concerto.player.Settings.prototype.load = function() {
-  this.screen_id = localStorage['screen_id'];
-  this.server_url = localStorage['server_url'];
-  this.server_version = localStorage['server_version'];
+	if (window.location.hash != "")
+	{
+		var regexp_id=/#mac="(([a-zA-Z]|\d|:)*)"/;
+		var regexp_server=/#server="(.*)"/;
+		var regexp_version=/#version=(\d*)/;
+		this.screen_id = window.location.hash.match(regexp_id)[1];
+		this.server_url = window.location.hash.match(regexp_server)[1];
+		this.server_version = window.location.hash.match(regexp_version)[1];
+	}
+	else
+	{
+	  this.screen_id = localStorage['screen_id'];
+	  this.server_url = localStorage['server_url'];
+	  this.server_version = localStorage['server_version'];
+	}
 };
 goog.exportSymbol('concerto.player.Settings.load', concerto.player.Settings.prototype.load);
 

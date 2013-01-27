@@ -29,13 +29,13 @@ elif [ $debug -eq 1 ]; then
   src/closure/closure/bin/build/closurebuilder.py \
     --root=src/closure/ --root=src/js/ --namespace="concerto.player.pages.Settings" \
     --output_mode=compiled --compiler_jar=compiler.jar \
-   > src/settings_debug.js
+   > src/settings.js
 
 else
   src/closure/closure/bin/build/closurebuilder.py \
     --root=src/closure/ --root=src/js/ --namespace="concerto.player.pages.Settings" \
     --output_mode=script --compiler_jar=compiler.jar \
-   > src/settings_superdebug.js
+   > src/settings.js
 fi
 
 if [ $debug -eq 0 ]; then
@@ -49,11 +49,11 @@ elif [ $debug -eq 1 ]; then
   src/closure/closure/bin/build/closurebuilder.py \
     --root=src/closure/ --root=src/js/ --namespace="concerto.player.pages.Home" \
     --output_mode=compiled --compiler_jar=compiler.jar \
-   > src/index_debug.js
+   > src/index.js
 
 else
   src/closure/closure/bin/build/closurebuilder.py \
     --root=src/closure/ --root=src/js/ --namespace="concerto.player.pages.Home" \
     --output_mode=script --compiler_jar=compiler.jar \
-   > src/index_superdebug.js
+   > src/index.js
 fi
