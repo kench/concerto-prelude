@@ -4,7 +4,7 @@ zip: compile-js copy-files
 	cd build && zip -r concerto-player *
 	mv build/concerto-player.zip concerto-player.zip
 
-server: compile-js copy-files
+server: copy-files
 	rackup
 
 copy-files:
