@@ -1,3 +1,6 @@
 [submodule "src/closure"]
 	path = src/closure
 	url = https://github.com/jarib/google-closure-library.git
+[submodule "src/concerto-frontend"]
+	path = src/concerto-frontend
+	url = https://github.com/bamnet/concerto-frontend.git
